@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="!isEditMode">
+    <p
+      style="display: inline-block; margin-right: 10px"
+      (click)="toggleEditMode()"
+    >
+      {{ todo }}
+      <button (click)="deleteTodo()">X</button>
+    </p>
+  </div>
+  <div *ngIf="isEditMode">
+    <form (ngSubmit)="editTodo($event)">
+      <input type="text" [formControl]="updatedTodo" />
+      <button (click)="toggleEditMode()" type="button">X</button>
+    </form>
+  </div>
+</div>
